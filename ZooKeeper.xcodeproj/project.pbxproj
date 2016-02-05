@@ -15,6 +15,10 @@
 		9EFEADDA1C64506E00DB4A36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EFEADD81C64506E00DB4A36 /* LaunchScreen.storyboard */; };
 		9EFEADE51C64506E00DB4A36 /* ZooKeeperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFEADE41C64506E00DB4A36 /* ZooKeeperTests.swift */; };
 		9EFEADF01C64506E00DB4A36 /* ZooKeeperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFEADEF1C64506E00DB4A36 /* ZooKeeperUITests.swift */; };
+		9EFEAE011C64566C00DB4A36 /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFEAE001C64566C00DB4A36 /* Animal.swift */; };
+		9EFEAE031C6456DF00DB4A36 /* AnimalFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFEAE021C6456DF00DB4A36 /* AnimalFactory.swift */; };
+		9EFEAE051C64584C00DB4A36 /* zoo.json in Resources */ = {isa = PBXBuildFile; fileRef = 9EFEAE041C64584B00DB4A36 /* zoo.json */; };
+		9EFEAE071C645BEA00DB4A36 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFEAE061C645BEA00DB4A36 /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		9EFEADEB1C64506E00DB4A36 /* ZooKeeperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZooKeeperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EFEADEF1C64506E00DB4A36 /* ZooKeeperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooKeeperUITests.swift; sourceTree = "<group>"; };
 		9EFEADF11C64506E00DB4A36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9EFEAE001C64566C00DB4A36 /* Animal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
+		9EFEAE021C6456DF00DB4A36 /* AnimalFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalFactory.swift; sourceTree = "<group>"; };
+		9EFEAE041C64584B00DB4A36 /* zoo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = zoo.json; sourceTree = "<group>"; };
+		9EFEAE061C645BEA00DB4A36 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +111,8 @@
 				9EFEADCF1C64506E00DB4A36 /* MasterViewController.swift */,
 				9EFEADD11C64506E00DB4A36 /* DetailViewController.swift */,
 				9EFEADD31C64506E00DB4A36 /* Main.storyboard */,
+				9EFEAE061C645BEA00DB4A36 /* SwiftyJSON.swift */,
+				9EFEADFF1C6455B800DB4A36 /* Models */,
 				9EFEADD61C64506E00DB4A36 /* Assets.xcassets */,
 				9EFEADD81C64506E00DB4A36 /* LaunchScreen.storyboard */,
 				9EFEADDB1C64506E00DB4A36 /* Info.plist */,
@@ -126,6 +136,16 @@
 				9EFEADF11C64506E00DB4A36 /* Info.plist */,
 			);
 			path = ZooKeeperUITests;
+			sourceTree = "<group>";
+		};
+		9EFEADFF1C6455B800DB4A36 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9EFEAE001C64566C00DB4A36 /* Animal.swift */,
+				9EFEAE021C6456DF00DB4A36 /* AnimalFactory.swift */,
+				9EFEAE041C64584B00DB4A36 /* zoo.json */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +255,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EFEAE051C64584C00DB4A36 /* zoo.json in Resources */,
 				9EFEADDA1C64506E00DB4A36 /* LaunchScreen.storyboard in Resources */,
 				9EFEADD71C64506E00DB4A36 /* Assets.xcassets in Resources */,
 				9EFEADD51C64506E00DB4A36 /* Main.storyboard in Resources */,
@@ -263,6 +284,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EFEADD21C64506E00DB4A36 /* DetailViewController.swift in Sources */,
+				9EFEAE031C6456DF00DB4A36 /* AnimalFactory.swift in Sources */,
+				9EFEAE011C64566C00DB4A36 /* Animal.swift in Sources */,
+				9EFEAE071C645BEA00DB4A36 /* SwiftyJSON.swift in Sources */,
 				9EFEADD01C64506E00DB4A36 /* MasterViewController.swift in Sources */,
 				9EFEADCE1C64506E00DB4A36 /* AppDelegate.swift in Sources */,
 			);
@@ -406,6 +430,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ZooKeeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Bangotang.ZooKeeper;
@@ -417,6 +446,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ZooKeeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Bangotang.ZooKeeper;

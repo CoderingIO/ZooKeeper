@@ -1,0 +1,21 @@
+{
+    "animals" : [
+                 {"type" : "Duck", "color" : "yellow"},
+                 {"type" : "Fish", "color" : "rainbow"},
+                 {"type" : "Fish", "color" : "brown"},
+                 {"type" : "Fish", "color" : "blue"},
+                 {"type" : "Duck", "color" : "brown"},
+                 {"type" : "Bear", "color" : "brown"},
+                 {"type" : "Elephant", "color" : "grey"},
+                 {"type" : "Elephant", "color" : "purple"},
+                 {"type" : "Giraffe", "color" : "yellow and brown spotted"},
+                 {"type" : "Giraffe", "color" : "brown and yellow spotted"},
+                 {"type" : "Lion", "color" : "yellow"},
+                 {"type" : "Tiger", "color" : "striped"},
+                 {"type" : "Panther", "color" : "Black"},
+                 {"type" : "Swan", "color" : "white"},
+                 {"type" : "Alien", "color" : "green"},
+                 {"type" : "Zebra", "color" : "striped"},
+                 ]
+}
+
