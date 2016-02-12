@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E052A6E1C6C181400159390 /* AnimalFactoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E052A6D1C6C181400159390 /* AnimalFactoryTest.swift */; };
+		9E052A701C6C2AEE00159390 /* AnimalTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E052A6F1C6C2AEE00159390 /* AnimalTest.swift */; };
+		9E052A741C6C32DF00159390 /* AnimalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E052A731C6C32DF00159390 /* AnimalTableViewCell.swift */; };
+		9E052A761C6C3F0900159390 /* AnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E052A751C6C3F0900159390 /* AnimalViewController.swift */; };
 		9EFEADCE1C64506E00DB4A36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFEADCD1C64506E00DB4A36 /* AppDelegate.swift */; };
 		9EFEADD01C64506E00DB4A36 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFEADCF1C64506E00DB4A36 /* MasterViewController.swift */; };
 		9EFEADD21C64506E00DB4A36 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFEADD11C64506E00DB4A36 /* DetailViewController.swift */; };
@@ -39,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9E052A6D1C6C181400159390 /* AnimalFactoryTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalFactoryTest.swift; sourceTree = "<group>"; };
+		9E052A6F1C6C2AEE00159390 /* AnimalTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalTest.swift; sourceTree = "<group>"; };
+		9E052A731C6C32DF00159390 /* AnimalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalTableViewCell.swift; sourceTree = "<group>"; };
+		9E052A751C6C3F0900159390 /* AnimalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalViewController.swift; sourceTree = "<group>"; };
 		9EFEADCA1C64506E00DB4A36 /* ZooKeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZooKeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EFEADCD1C64506E00DB4A36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EFEADCF1C64506E00DB4A36 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +124,8 @@
 				9EFEADD61C64506E00DB4A36 /* Assets.xcassets */,
 				9EFEADD81C64506E00DB4A36 /* LaunchScreen.storyboard */,
 				9EFEADDB1C64506E00DB4A36 /* Info.plist */,
+				9E052A731C6C32DF00159390 /* AnimalTableViewCell.swift */,
+				9E052A751C6C3F0900159390 /* AnimalViewController.swift */,
 			);
 			path = ZooKeeper;
 			sourceTree = "<group>";
@@ -123,6 +133,8 @@
 		9EFEADE31C64506E00DB4A36 /* ZooKeeperTests */ = {
 			isa = PBXGroup;
 			children = (
+				9E052A6F1C6C2AEE00159390 /* AnimalTest.swift */,
+				9E052A6D1C6C181400159390 /* AnimalFactoryTest.swift */,
 				9EFEADE41C64506E00DB4A36 /* ZooKeeperTests.swift */,
 				9EFEADE61C64506E00DB4A36 /* Info.plist */,
 			);
@@ -284,10 +296,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EFEADD21C64506E00DB4A36 /* DetailViewController.swift in Sources */,
+				9E052A741C6C32DF00159390 /* AnimalTableViewCell.swift in Sources */,
 				9EFEAE031C6456DF00DB4A36 /* AnimalFactory.swift in Sources */,
 				9EFEAE011C64566C00DB4A36 /* Animal.swift in Sources */,
 				9EFEAE071C645BEA00DB4A36 /* SwiftyJSON.swift in Sources */,
 				9EFEADD01C64506E00DB4A36 /* MasterViewController.swift in Sources */,
+				9E052A761C6C3F0900159390 /* AnimalViewController.swift in Sources */,
 				9EFEADCE1C64506E00DB4A36 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,6 +310,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E052A6E1C6C181400159390 /* AnimalFactoryTest.swift in Sources */,
+				9E052A701C6C2AEE00159390 /* AnimalTest.swift in Sources */,
 				9EFEADE51C64506E00DB4A36 /* ZooKeeperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -525,6 +541,7 @@
 				9EFEADF61C64506E00DB4A36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9EFEADF71C64506E00DB4A36 /* Build configuration list for PBXNativeTarget "ZooKeeperTests" */ = {
 			isa = XCConfigurationList;
@@ -533,6 +550,7 @@
 				9EFEADF91C64506E00DB4A36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9EFEADFA1C64506E00DB4A36 /* Build configuration list for PBXNativeTarget "ZooKeeperUITests" */ = {
 			isa = XCConfigurationList;
@@ -541,6 +559,7 @@
 				9EFEADFC1C64506E00DB4A36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
