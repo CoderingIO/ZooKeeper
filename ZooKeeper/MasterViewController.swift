@@ -13,6 +13,7 @@ class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
     var data:[Animal]?
+    var staffData:[Staff]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,8 @@ class MasterViewController: UITableViewController {
         
         tableView.rowHeight = 85
         data = AnimalFactory.zooFromJSONFileNamed("zoo")
+        staffData = StaffFactory.zooFromJSONFileNamed("zoo")
+        
     }
 
     override func viewWillAppear(animated: Bool) {

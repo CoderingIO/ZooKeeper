@@ -57,7 +57,7 @@ class AnimalViewController: DetailViewController {
 
 extension AnimalViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-    //func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObect]) {
+   
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
         picker.dismissViewControllerAnimated(true, completion: nil)

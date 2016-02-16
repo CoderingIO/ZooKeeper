@@ -29,11 +29,11 @@ class StaffTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configurView() {
+    func configureView() {
         if let staff = staff {
-            staffIconImageView.image = (staff.photo ?? staff.imageName())
+            //staffIconImageView.image = (staff.photo ?? staff.imageName())
             staffTopLabel.text = staff.name
-            staffBottomLabel.text = staff.report()
+            staffBottomLabel.text = staff.jobDetails()
         }
     }
 

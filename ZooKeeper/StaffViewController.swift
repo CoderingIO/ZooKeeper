@@ -10,7 +10,9 @@ import UIKit
 
 class StaffViewController: DetailViewController {
     
-    
+    @IBOutlet weak var staffNameTextField: UITextField!
+    @IBOutlet weak var staffWeightTextField: UITextField!
+    @IBOutlet weak var isMaleToggle: UISegmentedControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,4 +36,27 @@ class StaffViewController: DetailViewController {
     }
     */
 
+    override func configureView() {
+        if let staff = detailItem as? Staff {
+            staffNameTextField?.text = staff.name
+        }
+    }
 }
+
+
+extension StaffViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+            picker.dismissViewControllerAnimated(true, completion: nil)
+            if let image = info[UIImagePickerControllerOriginalImage] as? UIImage,
+                let staff = detailItem as? Staff {
+                    staff.photo = image
+            }
+        }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        picker.dismissViewControllerAnimated(true, completion: nil)
+        }
+}
+

@@ -13,6 +13,7 @@ public class Staff {
     var type:String
     var name:String
     var isMale:Bool
+    var photo:UIImage?
     
     public init (type:String, name:String, isMale:Bool) {
         self.type = type
