@@ -33,7 +33,7 @@ class AnimalTableViewCell: UITableViewCell {
     
     func configureView() {
         if let animal = animal {
-            iconImageView.image = animal.imageName()
+            iconImageView.image = (animal.photo ?? animal.imageName())
             topLabel.text = animal.name
             bottomLabel.text = animal.report()
         }

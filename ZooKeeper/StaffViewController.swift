@@ -8,7 +8,9 @@
 
 import UIKit
 
-class StaffViewController: UIViewController {
+class StaffViewController: DetailViewController {
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

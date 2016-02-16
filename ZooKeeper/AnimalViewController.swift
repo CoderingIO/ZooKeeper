@@ -42,11 +42,33 @@ class AnimalViewController: DetailViewController {
 
     }
     
+    @IBAction func cameraTouched(sender: AnyObject) {
+        ABHPresentImageCapture(self, title: "choose", message: "choose")
+    }
+    
+    
     override func configureView() {
-        if let animal = detailItem {
+        if let animal = detailItem as? Animal {
             nameTextField?.text = animal.name
         }
     }
     
 }
 
+extension AnimalViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    //func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObect]) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        picker.dismissViewControllerAnimated(true, completion: nil)
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage,
+            let animal = detailItem as? Animal {
+                animal.photo = image
+            
+        }
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        picker.dismissViewControllerAnimated(true, completion: nil)
+    }
+}

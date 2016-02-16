@@ -1,3 +1,30 @@
+
+let app = XCUIApplication()
+app.childrenMatchingType(.Window).elementBoundByIndex(3).childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(1).tap()
+app.scrollViews.otherElements.icons["ZooKeeper"].pressForDuration(1.7);
+// Failed to find matching element please file bug (bugreport.apple.com) and provide output from Console.app
+
+let masterButton = app.navigationBars["Master"].buttons["Master"]
+masterButton.tap()
+
+let tablesQuery = app.tables
+tablesQuery.staticTexts["Donald"].tap()
+masterButton.tap()
+tablesQuery.staticTexts["I'm a girl brown Charlie animal"].tap()
+app.datePickers.pickerWheels["2016"].tap()
+
+let animalWeightLbsTextField = app.textFields["Animal Weight lbs"]
+animalWeightLbsTextField.tap()
+animalWeightLbsTextField.typeText("34\r")
+
+let animalColorTextField = app.textFields["Animal color"]
+animalColorTextField.tap()
+animalColorTextField.tap()
+masterButton.tap()
+// Failed to find matching element please file bug (bugreport.apple.com) and provide output from Console.app
+masterButton.tap()
+tablesQuery.staticTexts["Lion-o"].tap()
+masterButton.tap()
 //
 //  ZooKeeperUITests.swift
 //  ZooKeeperUITests

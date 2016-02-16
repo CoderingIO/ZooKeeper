@@ -17,9 +17,11 @@ public class Animal {
     var name:String
     var color:String
     var isMale:Bool
-   
+    //optional Data
     var currentWeight:Float?
     var birthday:NSDate?
+    var photo:UIImage?
+    
     
     public init(type:String, name:String, color:String, isMale:Bool){
         self.type = type
