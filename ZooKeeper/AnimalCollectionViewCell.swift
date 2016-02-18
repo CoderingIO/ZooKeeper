@@ -10,4 +10,8 @@ import UIKit
 
 class AnimalCollectionViewCell: UICollectionViewCell {
     
+    // Mark: Properties
+    @IBOutlet weak var animalCellImage: UIImageView!
+    @IBOutlet weak var animalCellLabel: UILabel!
+    
 }

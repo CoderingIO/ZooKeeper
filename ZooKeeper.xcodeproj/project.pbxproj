@@ -12,6 +12,10 @@
 		9E052A741C6C32DF00159390 /* AnimalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E052A731C6C32DF00159390 /* AnimalTableViewCell.swift */; };
 		9E052A761C6C3F0900159390 /* AnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E052A751C6C3F0900159390 /* AnimalViewController.swift */; };
 		9E3652DD1C728C5F009887F8 /* StaffTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3652DC1C728C5F009887F8 /* StaffTableViewCell.swift */; };
+		9E3D22421C7576DB00454175 /* TopMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3D22411C7576DB00454175 /* TopMenuViewController.swift */; };
+		9E3D22441C757C5100454175 /* Modals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E3D22431C757C5100454175 /* Modals.storyboard */; };
+		9E3D22461C757C7F00454175 /* ImageGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3D22451C757C7F00454175 /* ImageGalleryViewController.swift */; };
+		9E3D22481C757E6100454175 /* AnimalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3D22471C757E6100454175 /* AnimalCollectionViewCell.swift */; };
 		9EE106C31C6D8009001B715C /* WOBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE106C21C6D8009001B715C /* WOBHelper.swift */; };
 		9EE106C51C6D8AB1001B715C /* Staff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE106C41C6D8AB1001B715C /* Staff.swift */; };
 		9EE106C71C6D8D8A001B715C /* StaffFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE106C61C6D8D8A001B715C /* StaffFactory.swift */; };
@@ -53,6 +57,10 @@
 		9E052A731C6C32DF00159390 /* AnimalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalTableViewCell.swift; sourceTree = "<group>"; };
 		9E052A751C6C3F0900159390 /* AnimalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalViewController.swift; sourceTree = "<group>"; };
 		9E3652DC1C728C5F009887F8 /* StaffTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffTableViewCell.swift; sourceTree = "<group>"; };
+		9E3D22411C7576DB00454175 /* TopMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopMenuViewController.swift; sourceTree = "<group>"; };
+		9E3D22431C757C5100454175 /* Modals.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Modals.storyboard; sourceTree = "<group>"; };
+		9E3D22451C757C7F00454175 /* ImageGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGalleryViewController.swift; sourceTree = "<group>"; };
+		9E3D22471C757E6100454175 /* AnimalCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalCollectionViewCell.swift; sourceTree = "<group>"; };
 		9EE106C21C6D8009001B715C /* WOBHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WOBHelper.swift; sourceTree = "<group>"; };
 		9EE106C41C6D8AB1001B715C /* Staff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Staff.swift; sourceTree = "<group>"; };
 		9EE106C61C6D8D8A001B715C /* StaffFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffFactory.swift; sourceTree = "<group>"; };
@@ -127,8 +135,12 @@
 			children = (
 				9EFEADCD1C64506E00DB4A36 /* AppDelegate.swift */,
 				9EFEADCF1C64506E00DB4A36 /* MasterViewController.swift */,
+				9E3D22431C757C5100454175 /* Modals.storyboard */,
+				9E3D22471C757E6100454175 /* AnimalCollectionViewCell.swift */,
+				9E3D22451C757C7F00454175 /* ImageGalleryViewController.swift */,
 				9EFEADD11C64506E00DB4A36 /* DetailViewController.swift */,
 				9EFEADD31C64506E00DB4A36 /* Main.storyboard */,
+				9E3D22411C7576DB00454175 /* TopMenuViewController.swift */,
 				9EFEAE061C645BEA00DB4A36 /* SwiftyJSON.swift */,
 				9EE106C21C6D8009001B715C /* WOBHelper.swift */,
 				9EFEADFF1C6455B800DB4A36 /* Models */,
@@ -282,6 +294,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E3D22441C757C5100454175 /* Modals.storyboard in Resources */,
 				9EFEAE051C64584C00DB4A36 /* zoo.json in Resources */,
 				9EFEADDA1C64506E00DB4A36 /* LaunchScreen.storyboard in Resources */,
 				9EFEADD71C64506E00DB4A36 /* Assets.xcassets in Resources */,
@@ -312,6 +325,8 @@
 			files = (
 				9EE106C51C6D8AB1001B715C /* Staff.swift in Sources */,
 				9EFEADD21C64506E00DB4A36 /* DetailViewController.swift in Sources */,
+				9E3D22481C757E6100454175 /* AnimalCollectionViewCell.swift in Sources */,
+				9E3D22461C757C7F00454175 /* ImageGalleryViewController.swift in Sources */,
 				9E052A741C6C32DF00159390 /* AnimalTableViewCell.swift in Sources */,
 				9EFEAE031C6456DF00DB4A36 /* AnimalFactory.swift in Sources */,
 				9EFEAE011C64566C00DB4A36 /* Animal.swift in Sources */,
@@ -319,6 +334,7 @@
 				9E3652DD1C728C5F009887F8 /* StaffTableViewCell.swift in Sources */,
 				9EFEADD01C64506E00DB4A36 /* MasterViewController.swift in Sources */,
 				9EE106C91C6D9362001B715C /* StaffViewController.swift in Sources */,
+				9E3D22421C7576DB00454175 /* TopMenuViewController.swift in Sources */,
 				9E052A761C6C3F0900159390 /* AnimalViewController.swift in Sources */,
 				9EE106C71C6D8D8A001B715C /* StaffFactory.swift in Sources */,
 				9EE106C31C6D8009001B715C /* WOBHelper.swift in Sources */,

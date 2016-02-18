@@ -15,6 +15,7 @@ class AnimalViewController: DetailViewController {
     @IBOutlet weak var isMaleSwitch: UISegmentedControl!
     @IBOutlet weak var birthdayDatePicker: UIDatePicker!
     @IBOutlet weak var colorTextField: UITextField!
+    @IBOutlet weak var animalPhoto: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,15 +44,37 @@ class AnimalViewController: DetailViewController {
     }
     
     @IBAction func cameraTouched(sender: AnyObject) {
-        ABHPresentImageCapture(self, title: "choose", message: "choose")
+        guard let animal = detailItem as? Animal else { return }
+        
+        if animal.photo == nil {
+            ABHPresentImageCapture(self, title: "Choose", message: "Choose")
+        } else {
+            ABHAlertFor(self, title: "Replace Photo", message: "Are you sure you want to replace this image", okCallback: { () -> Void in
+                ABHPresentImageCapture(self, title: "", message: "")
+                }, cancelCallback: nil)
+                            
+                    
+            
+        }
     }
     
     
     override func configureView() {
-        if let animal = detailItem as? Animal {
+        guard let animal = self.detailItem as? Animal where nameTextField != nil else {return}
+        
             nameTextField?.text = animal.name
+        
+            colorTextField?.text = animal.color
+//            if let weight = animal.weight {
+//                weightTextField?.text = NSString(format: "%0.2f", weight) as String
+//            } else {
+//
+//            }
+            isMaleSwitch?.selectedSegmentIndex = animal.isMale ? 0 : 1
+            animalPhoto?.image = animal.photo ?? UIImage(named: "camera")
+            
         }
-    }
+    
     
 }
 

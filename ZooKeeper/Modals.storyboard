@@ -1,7 +1,96 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Image Gallery View Controller-->
+        <scene sceneID="Lnp-TP-Ik2">
+            <objects>
+                <viewController storyboardIdentifier="ImageGalleryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7LC-DL-Yc6" customClass="ImageGalleryViewController" customModule="ZooKeeper" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kZf-Jl-5hX"/>
+                        <viewControllerLayoutGuide type="bottom" id="Zia-sd-Kn2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uOQ-Yx-Tgo" customClass="AnimalCollectionViewCell" customModule="ZooKeeper" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4K5-WX-yJW">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="505"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="w7Y-pV-g3r">
+                                    <size key="itemSize" width="146" height="134"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AnimalCell" id="fty-CA-TOf" customClass="AnimalCollectionViewCell" customModule="ZooKeeper" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="146" height="134"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="146" height="134"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="whX-Ba-XHp" customClass="A">
+                                                    <rect key="frame" x="8" y="8" width="138" height="91"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="138" id="FGh-fJ-MSp"/>
+                                                        <constraint firstAttribute="height" constant="91" id="W1E-YW-1Re"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AWI-Zw-1xu">
+                                                    <rect key="frame" x="52" y="105" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="AWI-Zw-1xu" firstAttribute="centerX" secondItem="fty-CA-TOf" secondAttribute="centerX" id="01t-Z1-ywD"/>
+                                            <constraint firstItem="whX-Ba-XHp" firstAttribute="top" secondItem="fty-CA-TOf" secondAttribute="topMargin" id="4ge-ob-xE9"/>
+                                            <constraint firstItem="AWI-Zw-1xu" firstAttribute="bottom" secondItem="fty-CA-TOf" secondAttribute="bottomMargin" id="O3T-Z4-6AU"/>
+                                            <constraint firstItem="whX-Ba-XHp" firstAttribute="leading" secondItem="fty-CA-TOf" secondAttribute="leadingMargin" id="qJQ-3x-34K"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="animalCellImage" destination="whX-Ba-XHp" id="M9m-X7-gJo"/>
+                                            <outlet property="animalCellLabel" destination="AWI-Zw-1xu" id="K1X-pF-2So"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KpI-EP-dRx">
+                                <rect key="frame" x="273" y="529" width="54" height="30"/>
+                                <state key="normal" title="Dismiss"/>
+                                <connections>
+                                    <action selector="dismissTouched:" destination="7LC-DL-Yc6" eventType="touchUpInside" id="epR-Zh-nw3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="4K5-WX-yJW" secondAttribute="trailing" constant="-20" id="UsN-pl-NpS"/>
+                            <constraint firstItem="KpI-EP-dRx" firstAttribute="top" secondItem="4K5-WX-yJW" secondAttribute="bottom" constant="24" id="arI-Px-70o"/>
+                            <constraint firstItem="KpI-EP-dRx" firstAttribute="leading" secondItem="uOQ-Yx-Tgo" secondAttribute="leadingMargin" constant="253" id="bYI-JH-emW"/>
+                            <constraint firstItem="4K5-WX-yJW" firstAttribute="top" secondItem="uOQ-Yx-Tgo" secondAttribute="topMargin" id="do6-13-R9U"/>
+                            <constraint firstItem="Zia-sd-Kn2" firstAttribute="top" secondItem="KpI-EP-dRx" secondAttribute="bottom" constant="41" id="eD6-MJ-t8w"/>
+                            <constraint firstItem="4K5-WX-yJW" firstAttribute="leading" secondItem="uOQ-Yx-Tgo" secondAttribute="leadingMargin" constant="-20" id="eiY-Z6-muc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageCollectionView" destination="4K5-WX-yJW" id="NmQ-kW-HSe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mRL-ER-Yvl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="378" y="303"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="camera" width="50" height="50"/>
+    </resources>
 </document>

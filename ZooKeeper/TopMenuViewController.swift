@@ -9,8 +9,11 @@
 import UIKit
 
 class TopMenuViewController: UIViewController {
-
+    
+    
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -31,5 +34,15 @@ class TopMenuViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
+    
+    @IBAction func zooListTouched(sender: AnyObject) {
+        performSegueWithIdentifier("ZooList", sender: self)
+    }
+    
+    @IBAction func photoListTouched(sender: AnyObject) {
+        let viewController = ImageGalleryViewController.instance()
+        presentViewController(viewController, animated: true, completion: nil)
+    }
 
 }

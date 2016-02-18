@@ -22,7 +22,7 @@ public class Staff {
     }
     
     public func jobDetails () -> String {
-        return "Hello, I'm \(name) and I do \(type), also I'm a \(isMale ? "boy" : "girl"). Thanks for asking!"
+        return "Hello, I'm \(name) and I'm a \(isMale ? "boy" : "girl")."
     }
     
 }

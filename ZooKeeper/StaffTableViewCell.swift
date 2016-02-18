@@ -12,7 +12,7 @@ class StaffTableViewCell: UITableViewCell {
     
     @IBOutlet weak var staffTopLabel: UILabel!
     @IBOutlet weak var staffBottomLabel: UILabel!
-    @IBOutlet weak var staffIconImageView: UIImageView!
+   // @IBOutlet weak var staffIconImageView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

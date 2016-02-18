@@ -11,31 +11,47 @@ import SwiftyJSON
 
 class MasterViewController: UITableViewController {
 
+    //MARK: Properties
+    //What does this do?
     var detailViewController: DetailViewController? = nil
-    var data:[Animal]?
-    var staffData:[Staff]?
+    // Makes a dictionary of "AnyObject"s initialized to empty
+    var data = [Int:[AnyObject]]()
+    // Keys for the dictionary
+    let animalKey = 0
+    let staffKey = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        // adds a edit button to navigation bar in the UI
+//        self.navigationItem.leftBarButtonItem = self.editButtonItem()
 
+        // create a constant addButton using a convienece instance of UIBarButtonItem .Add is a systemItem, target is itself and calls the func in ""
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
+        //as UIBarButtonItem you can ge added to the navigationItem properties
         self.navigationItem.rightBarButtonItem = addButton
+        //if constant split has a valid splitViewController
         if let split = self.splitViewController {
+            //then create controllers the two "split" screens
             let controllers = split.viewControllers
+            //assign to the "Detail View(left)"
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+            //Do I need one to display the directory?
         }
-        
+        //Set the table's row height to cgFloat of 85
         tableView.rowHeight = 85
-        data = AnimalFactory.zooFromJSONFileNamed("zoo")
-        staffData = StaffFactory.zooFromJSONFileNamed("zoo")
+        //assign the keys for the data: dictionary
+        data[animalKey] = AnimalFactory.zooFromJSONFileNamed("zoo")
+        data[staffKey] = StaffFactory.zooFromJSONFileNamed("zoo")
+        
         
     }
-
+    // standard function of mobile apps called after the views are visible
     override func viewWillAppear(animated: Bool) {
+        //if the split view is collasped do not display "this" controller
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
+        // func that when call will make the view animate
         super.viewWillAppear(animated)
+        //Reload the data in the data view
         tableView.reloadData()
     }
 
@@ -43,7 +59,8 @@ class MasterViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    //Not sure what to do with this
     func insertNewObject(sender: AnyObject) {
 //        objects.insert(NSDate(), atIndex: 0)
 //        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
@@ -51,40 +68,69 @@ class MasterViewController: UITableViewController {
     }
 
     // MARK: - Segues
-
+    // prepare for go to a new storboard scene
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "AnimalDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow {
-                let object = data![indexPath.row]
-                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-                controller.detailItem = object
-                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
-                controller.navigationItem.leftItemsSupplementBackButton = true
+        // creates a var to hold the detail item
+        var detailItem:AnyObject?
+        // have the controller segue to the detail view controller as the top controller
+        let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+        // if index path has a valid value
+        if let indexPath = self.tableView.indexPathForSelectedRow {
+            
+            // and if the identifier is an animal detail
+            if segue.identifier == "AnimalDetail" {
+                //then the detail item is the animal info in that row
+                detailItem = data[animalKey]![indexPath.row]
+            // or if the identifier is a staff detail
+            } else if segue.identifier == "StaffDetail" {
+                // then the detailItem is the staff info at selected row
+                detailItem = data[staffKey]![indexPath.row]
+                //Dont know this yet
+                //(controller as! StaffViewController).delegate = self
             }
         }
+        //more stuff I dont know
+        controller.detailItem = detailItem
+        controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+        controller.navigationItem.leftItemsSupplementBackButton = true
     }
 
     // MARK: - Table View
-
+    // used to make number of sections in the table view assign as int
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        // use data array count to determin sections. in this case 2
+        return data.count
     }
-
+    // func to set up number of rows in section
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let data = data {
-            return data.count
+        // if the data dictionary has sections
+        if let section = data[section] {
+            // return the # of sections
+            return section.count
+            
         }
+        // or return 0
         return 0
     }
-
+    // func of table view to set up cells for each row at the index path returns a UITableViewCell
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("AnimalCell", forIndexPath: indexPath) as! AnimalTableViewCell
+        // if indexpath is section 0 "the animal section"
+        if indexPath.section == 0 {
+            // create a cell
+            let cell = tableView.dequeueReusableCellWithIdentifier("AnimalCell", forIndexPath: indexPath) as! AnimalTableViewCell
 
-        let animal = data![indexPath.row]
-        cell.animal = animal
-        cell.configureView()
-        
-        return cell
+            let animal = data[animalKey]![indexPath.row] as! Animal
+            cell.animal = animal
+            cell.configureView()
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("StaffCell", forIndexPath: indexPath) as! StaffTableViewCell
+            let staff = data[staffKey]![indexPath.row] as! Staff
+            cell.staff = staff
+            cell.configureView()
+            return cell
+            
+        }
     }
 
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -94,8 +140,15 @@ class MasterViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            data!.removeAtIndex(indexPath.row)
+            if indexPath.section == 0 {
+                data[animalKey]?.removeAtIndex(indexPath.row)
+            } else if indexPath.section == 1 {
+                data[staffKey]?.removeAtIndex(indexPath.row)
+                
+            }
+            
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }

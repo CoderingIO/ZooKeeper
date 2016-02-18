@@ -8,7 +8,15 @@
 
 import UIKit
 
-class ImageGalleryViewController: UIViewController {
+class ImageGalleryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    @IBOutlet weak var imageCollectionView: UICollectionView!
+    
+    private static let storyboard = UIStoryboard(name: "Modals", bundle: nil)
+    
+    static func instance() -> ImageGalleryViewController {
+        return storyboard.instantiateViewControllerWithIdentifier("ImageGalleryViewController") as! ImageGalleryViewController
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,5 +39,18 @@ class ImageGalleryViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func dismissTouched(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("AnimalCell", forIndexPath: indexPath) as! AnimalCollectionViewCell
+        cell.animalCellLabel.text = "name"
+        return cell
+    }
 }
