@@ -43,6 +43,7 @@ class ImageGalleryViewController: UIViewController, UICollectionViewDataSource, 
     @IBAction func dismissTouched(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3

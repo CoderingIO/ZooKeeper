@@ -87,6 +87,7 @@ extension AnimalViewController: UINavigationControllerDelegate, UIImagePickerCon
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage,
             let animal = detailItem as? Animal {
                 animal.photo = image
+                configureView()
             
         }
     }
