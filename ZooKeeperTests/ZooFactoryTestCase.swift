@@ -1,15 +1,14 @@
 //
-//  AnimalFactoryTest.swift
+//  ZooFactoryTestCase.swift
 //  ZooKeeper
 //
-//  Created by Wayne Bangert on 2/10/16.
+//  Created by Wayne Bangert on 2/18/16.
 //  Copyright © 2016 Wayne Bangert. All rights reserved.
 //
 
 import XCTest
-@testable import ZooKeeper
 
-class AnimalFactoryTest: XCTestCase {
+class ZooFactoryTestCase: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -21,23 +20,16 @@ class AnimalFactoryTest: XCTestCase {
         super.tearDown()
     }
     
-    func test_ParseJSONFile_CreatesAnimalArray() {
-            
-    func test_ParseMissingJSONFile_ReturnsNil() {
-        if let _ = AnimalFactory.zooFromJSONFileNamed("zoo!") {
-            XCTFail("spontanious zoo?")
-        } else {
-            XCTAssert(true, "no animals should be returned")
-        }
+    func testExample() {
+        // This is an example of a functional test case.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock {
-            AnimalFactory.zooFromJSONFileNamed("zoo!")
             // Put the code you want to measure the time of here.
         }
     }
     
-}
 }

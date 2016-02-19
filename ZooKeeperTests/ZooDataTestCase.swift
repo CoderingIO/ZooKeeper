@@ -1,26 +1,27 @@
 //
-//  ZooKeeperTests.swift
-//  ZooKeeperTests
+//  ZooDataTestCase.swift
+//  ZooKeeper
 //
-//  Created by Wayne Bangert on 2/4/16.
+//  Created by Wayne Bangert on 2/18/16.
 //  Copyright © 2016 Wayne Bangert. All rights reserved.
 //
 
 import XCTest
 @testable import ZooKeeper
 
-class ZooKeeperTests: XCTestCase {
+class ZooDataTestCase: XCTestCase {
     
-    func test_ParseValidJSONFile_CreatesZooObject() {
-        if let zoo = ZooFactory.zooFromJSONFileNamed("zoo!") {
-            XCTAssertGreaterThan(zoo.staff.count, 0, "zoo should have items")
-            XCTAssertGreaterThan(zoo.animals.count, 0, "zoo should have items")
-        } else {
-            XCTFail("should have zoo")
-        }
-        
     
-
+    func test_singleton_worksAndHasZoo() {
+        let zoo = ZooData.sharedInstance.zoo
+        XCTAssert(zoo.staff.count > 0, "zoo should have staff")
+        XCTAssert(zoo.animals.count > 0, "zoo should have animals")
+    }
+    
+    func test_singletin_isSameInstance() {
+        let zoo = ZooData.sharedInstance.zoo
+        let zoo2 = ZooData.sharedInstance.zoo
+        XCTAssert(zoo === zoo2, "singleton should always return the same instances")
     }
     
     override func setUp() {

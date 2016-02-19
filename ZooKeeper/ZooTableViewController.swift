@@ -9,21 +9,22 @@
 import UIKit
 import SwiftyJSON
 
-class MasterViewController: UITableViewController {
+class ZooTableViewController: UITableViewController {
 
     //MARK: Properties
     //What does this do?
     var detailViewController: DetailViewController? = nil
     // Makes a dictionary of "AnyObject"s initialized to empty
-    var data = [Int:[AnyObject]]()
+    var zoo:Zoo!
     // Keys for the dictionary
-    let animalKey = 0
-    let staffKey = 1
+    let animalSection = 0
+    let staffSection = 1
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // adds a edit button to navigation bar in the UI
-//        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+       
+        self.zoo = ZooData.sharedInstance.zoo
 
         // create a constant addButton using a convienece instance of UIBarButtonItem .Add is a systemItem, target is itself and calls the func in ""
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
@@ -40,8 +41,8 @@ class MasterViewController: UITableViewController {
         //Set the table's row height to cgFloat of 85
         tableView.rowHeight = 85
         //assign the keys for the data: dictionary
-        data[animalKey] = AnimalFactory.zooFromJSONFileNamed("zoo")
-        data[staffKey] = StaffFactory.zooFromJSONFileNamed("zoo")
+        // = AnimalFactory.zooFromJSONFileNamed("zoo")
+        //data[staffKey] = StaffFactory.zooFromJSONFileNamed("zoo")
         
         
     }
@@ -80,11 +81,11 @@ class MasterViewController: UITableViewController {
             // and if the identifier is an animal detail
             if segue.identifier == "AnimalDetail" {
                 //then the detail item is the animal info in that row
-                detailItem = data[animalKey]![indexPath.row]
+                detailItem = zoo.animals[indexPath.row]
             // or if the identifier is a staff detail
             } else if segue.identifier == "StaffDetail" {
                 // then the detailItem is the staff info at selected row
-                detailItem = data[staffKey]![indexPath.row]
+                detailItem = zoo.staff[indexPath.row]
                 //Dont know this yet
                 //(controller as! StaffViewController).delegate = self
             }
@@ -99,18 +100,20 @@ class MasterViewController: UITableViewController {
     // used to make number of sections in the table view assign as int
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // use data array count to determin sections. in this case 2
-        return data.count
+        return 2
     }
     // func to set up number of rows in section
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // if the data dictionary has sections
-        if let section = data[section] {
-            // return the # of sections
-            return section.count
-            
+        switch section {
+        case animalSection:
+            return zoo.animals.count
+        case staffSection:
+            return zoo.staff.count
+        default:
+            return 0
         }
-        // or return 0
-        return 0
+        
     }
     // func of table view to set up cells for each row at the index path returns a UITableViewCell
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -119,13 +122,13 @@ class MasterViewController: UITableViewController {
             // create a cell
             let cell = tableView.dequeueReusableCellWithIdentifier("AnimalCell", forIndexPath: indexPath) as! AnimalTableViewCell
 
-            let animal = data[animalKey]![indexPath.row] as! Animal
+            let animal = zoo.animals[indexPath.row]
             cell.animal = animal
             cell.configureView()
             return cell
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier("StaffCell", forIndexPath: indexPath) as! StaffTableViewCell
-            let staff = data[staffKey]![indexPath.row] as! Staff
+            let staff = zoo.staff[indexPath.row]
             cell.staff = staff
             cell.configureView()
             return cell
@@ -141,9 +144,9 @@ class MasterViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             if indexPath.section == 0 {
-                data[animalKey]?.removeAtIndex(indexPath.row)
+                zoo.animals.removeAtIndex(indexPath.row)
             } else if indexPath.section == 1 {
-                data[staffKey]?.removeAtIndex(indexPath.row)
+                zoo.staff.removeAtIndex(indexPath.row)
                 
             }
             
