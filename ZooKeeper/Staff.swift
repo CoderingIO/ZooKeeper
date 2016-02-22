@@ -25,6 +25,10 @@ public class Staff {
         return "Hello, I'm \(name) and I'm a \(isMale ? "boy" : "girl")."
     }
     
+    public func toDictionary() -> [String:AnyObject] {
+        return ["type": type, "name": name, "isMale": isMale]
+    }
+    
 }
 
 public class ZooKeeper : Staff {

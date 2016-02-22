@@ -214,4 +214,25 @@ public func ABHAlertFor(controller:UIViewController, title:String, message:Strin
 }
 
 
+// Mark: Documents directory access
+func getDocumentsDirectory() -> NSString {
+    let paths = NSSearchPathForDirectoriesInDomains(.DocumentationDirectory, .UserDomainMask, true)
+    let documentsDirectory = paths[0]
+    return documentsDirectory
+}
+
+func pathToFileInDocumentsDirectory(filename: String) -> String {
+    return getDocumentsDirectory().stringByAppendingPathComponent(filename)
+}
+
+func pathToExistingFileInDocumentsDirectory(filename: String) -> String? {
+    let path = pathToFileInDocumentsDirectory(filename)
+    let checkValidation = NSFileManager.defaultManager()
+    if (checkValidation.fileExistsAtPath(path)) {
+        return path
+    } else {
+        return nil
+    }
+}
+
 

@@ -17,11 +17,12 @@ public class Animal {
     var name:String
     var color:String
     var isMale:Bool
-    //optional Data
+    
     var currentWeight:Float?
     var birthday:NSDate?
     var photo:UIImage?
     
+    var photoFileName:String?
     
     public init(type:String, name:String, color:String, isMale:Bool){
         self.type = type
@@ -42,6 +43,37 @@ public class Animal {
         return UIImage(named: type.lowercaseString)
     }
     
+    public func hasImage() -> Bool {
+        return photoFileName != nil
+    }
+    // returns a bool if it works
+    public func saveImage(image:UIImage) -> Bool {
+        // create image to save with compression
+        if let data = UIImageJPEGRepresentation(image, 0.8) {
+            // gauranteed unique identifier
+            photoFileName = NSUUID().UUIDString + ".jpg"
+            // path to save image to
+            let path = pathToFileInDocumentsDirectory(photoFileName!)
+            //Test to see where its saving
+            print("writing to \(path)")
+            // return true if it works
+            return data.writeToFile(path, atomically: true)
+        }
+        return false
+    }
+    
+    public func loadImage() -> UIImage? {
+        print("reading from \(photoFileName ?? "no file")")
+        guard let filename = photoFileName,
+              let path = pathToExistingFileInDocumentsDirectory(filename),
+              let image = UIImage(contentsOfFile: path) else { return nil }
+        
+        return image
+    }
+    
+    public func toDictionary() -> [String:AnyObject] {
+        return [ "type": type, "name": name, "isMale": isMale, "color":color, "photoFileName": photoFileName ?? ""]
+    }
 }
 
 public class Duck : Animal, Quackable {

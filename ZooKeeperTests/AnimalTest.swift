@@ -21,6 +21,18 @@ class AnimalTest: XCTestCase {
         super.tearDown()
     }
     
+    func test_savingImage_updatesHasImage() {
+        let image = UIImage(named: "camera")
+        XCTAssertNotNil(image, "need an image")
+        
+        let animal = Duck(name: "peter", color: "blue", isMale: true)
+        XCTAssert(animal.saveImage(image!), "saving should return true")
+        XCTAssert(animal.hasImage(), "animal should have image")
+        
+        let loadedImage = animal.loadImage()
+        XCTAssertNotNil(loadedImage, "animal image should load off disk")
+    }
+    
     func test_reportFunction_works() {
         let animal = Animal(type: "something", name: "nothing", color: "test", isMale: false)
         

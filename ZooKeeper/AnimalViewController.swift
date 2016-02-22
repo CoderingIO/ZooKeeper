@@ -40,7 +40,7 @@ class AnimalViewController: DetailViewController {
     */
 
     @IBAction func controlChanged(sender: AnyObject) {
-
+        guard let animal = detailItem as? animal else {return}
     }
     
     @IBAction func cameraTouched(sender: AnyObject) {
@@ -65,13 +65,13 @@ class AnimalViewController: DetailViewController {
             nameTextField?.text = animal.name
         
             colorTextField?.text = animal.color
-//            if let weight = animal.weight {
-//                weightTextField?.text = NSString(format: "%0.2f", weight) as String
-//            } else {
-//
-//            }
+            if let weight = animal.currentWeight {
+                weightTextField?.text = NSString(format: "%0.2f", weight) as String
+            } else {
+                weightTextField?.text = "unknown"
+            }
             isMaleSwitch?.selectedSegmentIndex = animal.isMale ? 0 : 1
-            animalPhoto?.image = animal.photo ?? UIImage(named: "camera")
+            animalPhoto.image = animal.loadImage() ?? UIImage(named: "camera")
             
         }
     
@@ -88,7 +88,7 @@ extension AnimalViewController: UINavigationControllerDelegate, UIImagePickerCon
             let animal = detailItem as? Animal {
                 animal.photo = image
                 configureView()
-            
+                animal.saveImage(image)
         }
     }
     

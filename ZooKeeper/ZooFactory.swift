@@ -12,6 +12,19 @@ import Foundation
 public class ZooFactory {
     
     public static func zooFromJSONFileNamed(name:String) -> Zoo? {
+        // check to see if we have one in the docs directory
+        var storePath:String!
+        
+        if let path = pathToExistingFileInDocumentsDirectory(name + ".json") {
+            print("loaded from docs directory")
+            storePath = path
+        } else if let path = NSBundle.mainBundle().pathForResource(name, ofType: "json") {
+            print("loaded from bundle")
+            storePath = path
+        } else {
+            return nil
+        }
+        
         if let path = NSBundle.mainBundle().pathForResource("zoo", ofType: "json"),
             let contentData = NSFileManager.defaultManager().contentsAtPath(path) {
                 
@@ -73,7 +86,23 @@ public class ZooFactory {
             return TicketTaker(job: type, name: name, isMale: isMale)
         }
         return nil
-        }
     }
+    
+    public static func saveZoo(zoo:Zoo, toFileNamed name:String) -> Bool {
+        let path = pathToFileInDocumentsDirectory(name + ".json")
+        
+        let json = JSON(zoo.toDictionary())
+        let str = json.description
+        
+        do {
+            try str.writeToFile(path, atomically: false, encoding: NSUTF8StringEncoding)
+        }
+        catch (let error) {
+            print(error)
+            return false
+        }
+        return true
+    }
+}
 
 

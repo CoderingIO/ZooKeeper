@@ -22,4 +22,8 @@ public class ZooData {
             self.zoo = Zoo(animals: nil, staff: nil)
         }
     }
+    
+    public func saveZoo() -> Bool {
+        return ZooFactory.saveZoo(zoo, toFileNamed:dataFileName)
+    }
 }
