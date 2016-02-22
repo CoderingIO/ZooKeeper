@@ -40,7 +40,14 @@ class AnimalViewController: DetailViewController {
     */
 
     @IBAction func controlChanged(sender: AnyObject) {
-        guard let animal = detailItem as? animal else {return}
+        guard let animal = detailItem as? Animal else {return}
+        
+        animal.name = nameTextField.text!
+        animal.color = colorTextField.text!
+        animal.currentWeight = Float(weightTextField.text!)
+        animal.isMale = isMaleSwitch.selectedSegmentIndex == 0 ? true : false
+        animal.birthday = birthdayDatePicker.date
+        ZooData.sharedInstance.saveZoo()
     }
     
     @IBAction func cameraTouched(sender: AnyObject) {
@@ -89,6 +96,7 @@ extension AnimalViewController: UINavigationControllerDelegate, UIImagePickerCon
                 animal.photo = image
                 configureView()
                 animal.saveImage(image)
+                ZooData.sharedInstance.saveZoo()
         }
     }
     

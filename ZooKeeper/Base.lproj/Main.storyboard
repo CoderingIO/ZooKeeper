@@ -310,17 +310,26 @@
                                 <rect key="frame" x="20" y="72" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="controlChanged:" destination="COb-zm-8id" eventType="editingDidEnd" id="eDL-Jg-f2M"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Animal Weight lbs" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e0y-F1-PDR">
                                 <rect key="frame" x="20" y="176" width="174" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="controlChanged:" destination="COb-zm-8id" eventType="editingDidEnd" id="M8A-0g-nGK"/>
+                                </connections>
                             </textField>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="MBw-xO-ALF">
                                 <rect key="frame" x="20" y="328" width="560" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="476855498.37212503">
                                     <!--2016-02-11 03:51:38 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="controlChanged:" destination="COb-zm-8id" eventType="valueChanged" id="gKv-CP-XEI"/>
+                                </connections>
                             </datePicker>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Animal color" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j6z-dJ-aje">
                                 <rect key="frame" x="20" y="124" width="172" height="30"/>
@@ -329,6 +338,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="controlChanged:" destination="COb-zm-8id" eventType="editingDidEnd" id="UU3-Ge-ETq"/>
+                                </connections>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yqc-qR-v50">
                                 <rect key="frame" x="20" y="237" width="117" height="29"/>
@@ -336,6 +348,9 @@
                                     <segment title="Male"/>
                                     <segment title="Female"/>
                                 </segments>
+                                <connections>
+                                    <action selector="controlChanged:" destination="COb-zm-8id" eventType="valueChanged" id="tF2-XC-IPK"/>
+                                </connections>
                             </segmentedControl>
                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="wn0-AF-um0">
                                 <rect key="frame" x="202" y="124" width="378" height="185"/>
