@@ -29,6 +29,6 @@ public class Zoo {
             staffArray.append(person.toDictionary())
         }
         
-        return [ "animals" : animalArray, "staff" : staffArray]
+        return [ "animals" : animalArray, "staff" : staffArray ]
     }
 }

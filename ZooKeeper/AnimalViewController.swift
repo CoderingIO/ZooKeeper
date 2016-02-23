@@ -97,6 +97,7 @@ extension AnimalViewController: UINavigationControllerDelegate, UIImagePickerCon
                 configureView()
                 animal.saveImage(image)
                 ZooData.sharedInstance.saveZoo()
+                
         }
     }
     

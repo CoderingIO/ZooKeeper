@@ -216,7 +216,7 @@ public func ABHAlertFor(controller:UIViewController, title:String, message:Strin
 
 // Mark: Documents directory access
 func getDocumentsDirectory() -> NSString {
-    let paths = NSSearchPathForDirectoriesInDomains(.DocumentationDirectory, .UserDomainMask, true)
+    let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
     let documentsDirectory = paths[0]
     return documentsDirectory
 }

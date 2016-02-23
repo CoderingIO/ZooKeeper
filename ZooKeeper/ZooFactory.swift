@@ -25,8 +25,8 @@ public class ZooFactory {
             return nil
         }
         
-        if let path = NSBundle.mainBundle().pathForResource("zoo", ofType: "json"),
-            let contentData = NSFileManager.defaultManager().contentsAtPath(path) {
+        
+          if let contentData = NSFileManager.defaultManager().contentsAtPath(storePath) {
                 
                 let json = JSON(data: contentData)
                 let zoo = Zoo(animals: nil, staff: nil)
