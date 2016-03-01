@@ -25,7 +25,7 @@ public class ZooFactory {
             return nil
         }
         
-        
+          //
           if let contentData = NSFileManager.defaultManager().contentsAtPath(storePath) {
                 
                 let json = JSON(data: contentData)
@@ -33,7 +33,7 @@ public class ZooFactory {
                 
                 if let animals = json["animals"].array {
                     for ii in animals {
-                        if let object = AnimalFactory.animalFromJSON(ii) {
+                        if let object = animalFromJSON(ii) {
                             zoo.animals.append(object)
                         }
                     }
@@ -41,7 +41,7 @@ public class ZooFactory {
                 
                 if let staff = json["staff"].array {
                     for ii in staff {
-                        if let object = StaffFactory.staffFromJSON(ii) {
+                        if let object = staffFromJSON(ii) {
                             zoo.staff.append(object)
                         }
                     }
@@ -59,18 +59,29 @@ public class ZooFactory {
         let type:String = json["type"].stringValue
         let isMale:Bool = json ["isMale"].boolValue
         
+        var animal:Animal?
+
+        
         if type == "Duck" {
-            return Duck(name:name, color:color, isMale : isMale)
+            animal = Duck(name:name, color:color, isMale : isMale)
         } else if type == "Fish" {
-            return Fish(name:name, color:color, isMale : isMale)
+            animal = Fish(name:name, color:color, isMale : isMale)
         } else if type == "Bear" {
-            return Bear(name: name, color: color, isMale: isMale)
+            animal = Bear(name: name, color: color, isMale: isMale)
         } else if type == "Lion" {
-            return Lion(name: name, color: color, isMale: isMale)
+            animal = Lion(name: name, color: color, isMale: isMale)
         } else if type == "Seal" {
-            return Seal(name: name, color: color, isMale: isMale)
+            animal = Seal(name: name, color: color, isMale: isMale)
         }
-        return nil
+        
+        let photoPath:String = json["photoFileNme"].stringValue
+        if !photoPath.isEmpty {
+            animal?.photoFileName = photoPath
+        }
+        
+        return animal
+        
+        
 
     }
         
@@ -85,7 +96,7 @@ public class ZooFactory {
         } else if type == "TicketTaker" {
             return TicketTaker(job: type, name: name, isMale: isMale)
         }
-        return nil
+        return nil 
     }
     
     public static func saveZoo(zoo:Zoo, toFileNamed name:String) -> Bool {
