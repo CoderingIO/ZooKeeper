@@ -74,7 +74,7 @@ public class ZooFactory {
             animal = Seal(name: name, color: color, isMale: isMale)
         }
         
-        let photoPath:String = json["photoFileNme"].stringValue
+        let photoPath:String = json["photoFileName"].stringValue
         if !photoPath.isEmpty {
             animal?.photoFileName = photoPath
         }

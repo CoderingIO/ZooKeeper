@@ -8,6 +8,10 @@
 
 import Foundation
 
+enum ZooDataNotifications:String {
+    case Updated = "com.lss.zoodata.Updated"
+}
+
 public class ZooData {
     public static let sharedInstance = ZooData()
     
@@ -24,6 +28,12 @@ public class ZooData {
     }
     
     public func saveZoo() -> Bool {
-        return ZooFactory.saveZoo(zoo, toFileNamed:dataFileName)
+        // DELETED return ZooFactory.saveZoo(zoo, toFileNamed:dataFileName)
+        
+        let result = ZooFactory.saveZoo(zoo, toFileNamed: dataFileName)
+        if result {
+            NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: ZooDataNotifications.Updated.rawValue, object: nil))
+        }
+        return result
     }
 }

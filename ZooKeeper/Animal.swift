@@ -11,6 +11,7 @@ protocol Spawnable {
     func spawn ()
 }
 
+let dateFormatString = "dd-mmm-yy"
 
 public class Animal {
     var type:String
@@ -70,11 +71,29 @@ public class Animal {
         
         return image
     }
-    
+     // add weight and  birthday to save to dictionary
     public func toDictionary() -> [String:AnyObject] {
         return [ "type": type, "name": name, "isMale": isMale, "color":color, "photoFileName": photoFileName ?? ""]
     }
 }
+ 
+// write function to format birthday
+ 
+// private func birthdayDateString() -> String? {
+//    guard let day = birthday else {return nil}
+//    
+//    let formatter = NSDateFormatter()
+//    formatter.dateFormat = dateFormatString
+//    return formatter.stringFromDate(day)
+// }
+// 
+// public static dateFromString(string:String?) -> NSDate? {
+//    guard let string = string else {return nil}
+//    
+//    let formatter = NSDateFormatter()
+//    formatter.dateFormat = dateFormatString
+//    return formatter.dateFromString(string)
+// }
 
 public class Duck : Animal, Quackable {
     

@@ -40,12 +40,20 @@ class ZooTableViewController: UITableViewController {
         }
         //Set the table's row height to cgFloat of 85
         tableView.rowHeight = 85
-        //assign the keys for the data: dictionary
-        // = AnimalFactory.zooFromJSONFileNamed("zoo")
-        //data[staffKey] = StaffFactory.zooFromJSONFileNamed("zoo")
         
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "dataUpdated:", name: ZooDataNotifications.Updated.rawValue, object: nil)
+    
+    
         
     }
+    
+    // MARK: - Notifications
+    
+    func dataUpdated(notification:NSNotification) {
+        tableView.reloadData()
+    }
+    
     // standard function of mobile apps called after the views are visible
     override func viewWillAppear(animated: Bool) {
         //if the split view is collasped do not display "this" controller
@@ -53,7 +61,6 @@ class ZooTableViewController: UITableViewController {
         // func that when call will make the view animate
         super.viewWillAppear(animated)
         //Reload the data in the data view
-        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {

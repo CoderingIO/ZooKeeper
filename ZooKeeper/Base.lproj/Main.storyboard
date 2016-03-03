@@ -307,7 +307,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Animal Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7FC-yZ-d4m">
-                                <rect key="frame" x="20" y="72" width="560" height="30"/>
+                                <rect key="frame" x="28" y="72" width="187" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -315,7 +315,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Animal Weight lbs" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e0y-F1-PDR">
-                                <rect key="frame" x="20" y="176" width="174" height="30"/>
+                                <rect key="frame" x="28" y="176" width="174" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -323,7 +323,7 @@
                                 </connections>
                             </textField>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="MBw-xO-ALF">
-                                <rect key="frame" x="20" y="328" width="560" height="216"/>
+                                <rect key="frame" x="28" y="325" width="544" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="476855498.37212503">
                                     <!--2016-02-11 03:51:38 +0000-->
                                 </date>
@@ -332,10 +332,7 @@
                                 </connections>
                             </datePicker>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Animal color" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j6z-dJ-aje">
-                                <rect key="frame" x="20" y="124" width="172" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="172" id="SDk-Pw-yCf"/>
-                                </constraints>
+                                <rect key="frame" x="28" y="124" width="132" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -343,7 +340,7 @@
                                 </connections>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yqc-qR-v50">
-                                <rect key="frame" x="20" y="237" width="117" height="29"/>
+                                <rect key="frame" x="28" y="237" width="117" height="29"/>
                                 <segments>
                                     <segment title="Male"/>
                                     <segment title="Female"/>
@@ -352,11 +349,19 @@
                                     <action selector="controlChanged:" destination="COb-zm-8id" eventType="valueChanged" id="tF2-XC-IPK"/>
                                 </connections>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMZ-pV-XBT">
+                                <rect key="frame" x="28" y="291" width="75" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="wn0-AF-um0">
-                                <rect key="frame" x="202" y="124" width="378" height="185"/>
+                                <rect key="frame" x="372" y="117" width="200" height="200"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="wn0-AF-um0" secondAttribute="height" multiplier="378:185" id="ClW-0k-W62"/>
+                                    <constraint firstAttribute="height" constant="200" id="VXL-Ba-Gxs"/>
+                                    <constraint firstAttribute="width" constant="200" id="lqp-1k-Iso"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -367,35 +372,33 @@
                                     <outletCollection property="gestureRecognizers" destination="Tmh-Io-Plr" appends="YES" id="Opy-iq-wWv"/>
                                 </connections>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMZ-pV-XBT">
-                                <rect key="frame" x="20" y="291" width="75" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="MBw-xO-ALF" secondAttribute="trailing" id="0jx-W5-tSX"/>
-                            <constraint firstItem="yqc-qR-v50" firstAttribute="leading" secondItem="e0y-F1-PDR" secondAttribute="leading" id="3MD-PP-9Xx"/>
-                            <constraint firstItem="wn0-AF-um0" firstAttribute="leading" secondItem="JG8-a0-d9X" secondAttribute="leadingMargin" constant="182" id="5Cw-vJ-2lF"/>
-                            <constraint firstItem="MBw-xO-ALF" firstAttribute="top" secondItem="CMZ-pV-XBT" secondAttribute="bottom" constant="13" id="8MB-aT-fE1"/>
-                            <constraint firstItem="93R-wd-jb2" firstAttribute="top" secondItem="MBw-xO-ALF" secondAttribute="bottom" constant="56" id="9WZ-3c-sgf"/>
-                            <constraint firstItem="e0y-F1-PDR" firstAttribute="top" secondItem="j6z-dJ-aje" secondAttribute="bottom" constant="22" id="BiU-ki-GGj"/>
-                            <constraint firstItem="wn0-AF-um0" firstAttribute="top" secondItem="7FC-yZ-d4m" secondAttribute="bottom" constant="22" id="Fmd-Xu-i2F"/>
-                            <constraint firstItem="CMZ-pV-XBT" firstAttribute="top" secondItem="yqc-qR-v50" secondAttribute="bottom" constant="26" id="Vk0-rh-f9w"/>
-                            <constraint firstItem="MBw-xO-ALF" firstAttribute="top" secondItem="wn0-AF-um0" secondAttribute="bottom" constant="19" id="W1g-St-AMO"/>
-                            <constraint firstItem="7FC-yZ-d4m" firstAttribute="trailing" secondItem="JG8-a0-d9X" secondAttribute="trailingMargin" id="dqj-7e-agu"/>
-                            <constraint firstItem="CMZ-pV-XBT" firstAttribute="leading" secondItem="yqc-qR-v50" secondAttribute="leading" id="g3s-65-oQe"/>
-                            <constraint firstItem="j6z-dJ-aje" firstAttribute="top" secondItem="7FC-yZ-d4m" secondAttribute="bottom" constant="22" id="iOK-e3-2vL"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="wn0-AF-um0" secondAttribute="trailing" id="j4s-xY-NgY"/>
-                            <constraint firstItem="MBw-xO-ALF" firstAttribute="leading" secondItem="CMZ-pV-XBT" secondAttribute="leading" id="jJy-dK-3fk"/>
-                            <constraint firstItem="e0y-F1-PDR" firstAttribute="leading" secondItem="j6z-dJ-aje" secondAttribute="leading" id="nS1-v4-Z3R"/>
-                            <constraint firstItem="j6z-dJ-aje" firstAttribute="leading" secondItem="7FC-yZ-d4m" secondAttribute="leading" id="nzN-NU-baX"/>
-                            <constraint firstItem="7FC-yZ-d4m" firstAttribute="top" secondItem="mRf-RS-vms" secondAttribute="bottom" constant="8" id="qMx-5F-ivx"/>
-                            <constraint firstItem="7FC-yZ-d4m" firstAttribute="leading" secondItem="JG8-a0-d9X" secondAttribute="leadingMargin" id="qVG-ag-u1T"/>
-                            <constraint firstItem="yqc-qR-v50" firstAttribute="top" secondItem="e0y-F1-PDR" secondAttribute="bottom" constant="31" id="u65-mT-R9j"/>
+                            <constraint firstItem="wn0-AF-um0" firstAttribute="trailing" secondItem="JG8-a0-d9X" secondAttribute="trailingMargin" constant="8" id="8L0-NU-Zej"/>
+                            <constraint firstItem="CMZ-pV-XBT" firstAttribute="leading" secondItem="yqc-qR-v50" secondAttribute="leading" id="8jg-aV-pDr"/>
+                            <constraint firstItem="j6z-dJ-aje" firstAttribute="leading" secondItem="7FC-yZ-d4m" secondAttribute="leading" id="B3U-Ac-O90"/>
+                            <constraint firstItem="wn0-AF-um0" firstAttribute="trailing" secondItem="MBw-xO-ALF" secondAttribute="trailing" id="Czq-vc-P9c"/>
+                            <constraint firstItem="yqc-qR-v50" firstAttribute="top" secondItem="e0y-F1-PDR" secondAttribute="bottom" constant="31" id="FXs-LM-C3E"/>
+                            <constraint firstItem="MBw-xO-ALF" firstAttribute="top" secondItem="CMZ-pV-XBT" secondAttribute="bottom" constant="10" id="G71-Sa-DV4"/>
+                            <constraint firstItem="7FC-yZ-d4m" firstAttribute="top" secondItem="mRf-RS-vms" secondAttribute="bottom" constant="8" id="Lna-SJ-m5o"/>
+                            <constraint firstItem="yqc-qR-v50" firstAttribute="leading" secondItem="e0y-F1-PDR" secondAttribute="leading" id="OUx-lo-gIu"/>
+                            <constraint firstItem="7FC-yZ-d4m" firstAttribute="leading" secondItem="JG8-a0-d9X" secondAttribute="leadingMargin" constant="8" id="QtM-PV-Sgv"/>
+                            <constraint firstItem="e0y-F1-PDR" firstAttribute="top" secondItem="j6z-dJ-aje" secondAttribute="bottom" constant="22" id="UeD-bJ-yb4"/>
+                            <constraint firstItem="j6z-dJ-aje" firstAttribute="top" secondItem="7FC-yZ-d4m" secondAttribute="bottom" constant="22" id="bNx-1O-jbc"/>
+                            <constraint firstItem="MBw-xO-ALF" firstAttribute="top" secondItem="wn0-AF-um0" secondAttribute="bottom" constant="8" id="fHX-4x-6fs"/>
+                            <constraint firstItem="e0y-F1-PDR" firstAttribute="leading" secondItem="j6z-dJ-aje" secondAttribute="leading" id="fhG-bk-jRz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MBw-xO-ALF" secondAttribute="trailing" constant="8" id="gmU-cb-hJS"/>
+                            <constraint firstItem="MBw-xO-ALF" firstAttribute="leading" secondItem="CMZ-pV-XBT" secondAttribute="leading" id="iHW-Ri-Lt8"/>
+                            <constraint firstItem="MBw-xO-ALF" firstAttribute="trailing" secondItem="JG8-a0-d9X" secondAttribute="trailingMargin" constant="8" id="jXe-xL-kvr"/>
+                            <constraint firstItem="CMZ-pV-XBT" firstAttribute="top" secondItem="yqc-qR-v50" secondAttribute="bottom" constant="26" id="llO-OP-TAM"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="jXe-xL-kvr"/>
+                                <exclude reference="8L0-NU-Zej"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="vAL-3M-PvY"/>
                     <connections>
