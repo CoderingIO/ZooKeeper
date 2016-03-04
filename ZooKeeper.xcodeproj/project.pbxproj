@@ -11,6 +11,12 @@
 		9E052A701C6C2AEE00159390 /* AnimalTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E052A6F1C6C2AEE00159390 /* AnimalTest.swift */; };
 		9E052A741C6C32DF00159390 /* AnimalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E052A731C6C32DF00159390 /* AnimalTableViewCell.swift */; };
 		9E052A761C6C3F0900159390 /* AnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E052A751C6C3F0900159390 /* AnimalViewController.swift */; };
+		9E2CF4931C8944E7006338DC /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E2CF4921C8944E7006338DC /* Firebase.framework */; };
+		9E2CF4951C894576006338DC /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E2CF4941C894576006338DC /* libc++.tbd */; };
+		9E2CF4971C894586006338DC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E2CF4961C894586006338DC /* SystemConfiguration.framework */; };
+		9E2CF4991C89458D006338DC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E2CF4981C89458D006338DC /* Security.framework */; };
+		9E2CF49B1C894594006338DC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E2CF49A1C894594006338DC /* CFNetwork.framework */; };
+		9E2CF49D1C8945A0006338DC /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E2CF49C1C8945A0006338DC /* libicucore.tbd */; };
 		9E3652DD1C728C5F009887F8 /* StaffTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3652DC1C728C5F009887F8 /* StaffTableViewCell.swift */; };
 		9E3D22421C7576DB00454175 /* TopMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3D22411C7576DB00454175 /* TopMenuViewController.swift */; };
 		9E3D22441C757C5100454175 /* Modals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E3D22431C757C5100454175 /* Modals.storyboard */; };
@@ -62,6 +68,12 @@
 		9E052A6F1C6C2AEE00159390 /* AnimalTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalTest.swift; sourceTree = "<group>"; };
 		9E052A731C6C32DF00159390 /* AnimalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalTableViewCell.swift; sourceTree = "<group>"; };
 		9E052A751C6C3F0900159390 /* AnimalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalViewController.swift; sourceTree = "<group>"; };
+		9E2CF4921C8944E7006338DC /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		9E2CF4941C894576006338DC /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		9E2CF4961C894586006338DC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		9E2CF4981C89458D006338DC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		9E2CF49A1C894594006338DC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		9E2CF49C1C8945A0006338DC /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		9E3652DC1C728C5F009887F8 /* StaffTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffTableViewCell.swift; sourceTree = "<group>"; };
 		9E3D22411C7576DB00454175 /* TopMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopMenuViewController.swift; sourceTree = "<group>"; };
 		9E3D22431C757C5100454175 /* Modals.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Modals.storyboard; sourceTree = "<group>"; };
@@ -102,6 +114,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E2CF49D1C8945A0006338DC /* libicucore.tbd in Frameworks */,
+				9E2CF49B1C894594006338DC /* CFNetwork.framework in Frameworks */,
+				9E2CF4991C89458D006338DC /* Security.framework in Frameworks */,
+				9E2CF4971C894586006338DC /* SystemConfiguration.framework in Frameworks */,
+				9E2CF4951C894576006338DC /* libc++.tbd in Frameworks */,
+				9E2CF4931C8944E7006338DC /* Firebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +143,12 @@
 		9EFEADC11C64506D00DB4A36 = {
 			isa = PBXGroup;
 			children = (
+				9E2CF49C1C8945A0006338DC /* libicucore.tbd */,
+				9E2CF49A1C894594006338DC /* CFNetwork.framework */,
+				9E2CF4981C89458D006338DC /* Security.framework */,
+				9E2CF4961C894586006338DC /* SystemConfiguration.framework */,
+				9E2CF4941C894576006338DC /* libc++.tbd */,
+				9E2CF4921C8944E7006338DC /* Firebase.framework */,
 				9EE528BB1C76B76C00F2E08A /* GalleryHeaderCollectionReusableView.swift */,
 				9EFEADCC1C64506E00DB4A36 /* ZooKeeper */,
 				9EFEADE31C64506E00DB4A36 /* ZooKeeperTests */,
@@ -510,6 +534,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = ZooKeeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -526,6 +551,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = ZooKeeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
