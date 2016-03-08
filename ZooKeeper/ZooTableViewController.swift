@@ -20,6 +20,8 @@ class ZooTableViewController: UITableViewController {
     let animalSection = 0
     let staffSection = 1
     
+    var animal:Animal?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,11 +72,43 @@ class ZooTableViewController: UITableViewController {
     
     //Not sure what to do with this
     func insertNewObject(sender: AnyObject) {
+        let alertController = UIAlertController(title: "Add New", message: "Animal or Staff?", preferredStyle: .Alert)
         
-        //Animal.toDictionary().insert(Zoo.animals, atIndex: 0)
-        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        let newAnimal = UIAlertAction(title: "New Animal", style: .Default) { (action) in
+            
+            let newIndexPath = NSIndexPath(forRow: 0, inSection: 0)
+            
+            self.zoo.animals.insert(Animal(type: "type", name: "name", color: "color", isMale: true), atIndex: 0)
+            //self.zoo.animal.insert(type: "species", name: "name", color: "color", isMale: true)
+            
+        
+            //self.zoo.animals.append(self.animal!)
+            self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+        }
+        
+        let newStaff = UIAlertAction(title: "New Staff", style: .Default) { (action) in
+            
+            let newIndexPath = NSIndexPath(forRow: 0, inSection: 1)
+            
+            self.zoo.staff.insert(Staff(type: "job", name: "name", isMale: true), atIndex: 0)
+            
+            self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+            }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+        }
+        
+        
+        alertController.addAction(newAnimal)
+        alertController.addAction(newStaff)
+        alertController.addAction(cancel)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
+            
     }
+        
+    
 
     // MARK: - Segues
     // prepare for go to a new storboard scene
